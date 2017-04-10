@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+ 				Route::get('/', 'HomeController@index');
+        Route::get('/message', 'MessageController@index');
+        Route::get('/message/{id}', 'MessageController@getOne');
+        Route::get('/contact/formulaire','MessageController@formulaire');
+        Route::post('/contact/insertOne', 'MessageController@insertOne');
+        Route::get('/message/{id}/delete', 'MessageController@deleteOne');
